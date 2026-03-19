@@ -1,19 +1,23 @@
 # Changelog
-<!--
-  Purpose:
-  - Track project change history over time.
-  - Record date, summary, and key files touched for each change set.
-  - Keep entries append-only (do not delete past entries).
--->
 
-## 2026-03-19
-- Hardened `scripts/dev-supervisor.js` for Railway/container runtime:
-  - `GIT_BOOTSTRAP` now defaults to `true` when `REPO_URL` is provided (can be disabled via `GIT_BOOTSTRAP=false`).
-  - `GIT_POLL` default is `true` (can be disabled via `GIT_POLL=false`).
-  - Removed destructive runtime git cleanup behavior (`git clean -fd`).
-  - Added `pnpm exec next` fallback when `.bin/next` is not found.
-  - Added explanatory inline comments for future maintainers/agents.
-- Updated Next config to set explicit Turbopack root to project root (`turbopack.root`).
-- Updated Docker app image install step to force clean dependency install:
-  - `RUN rm -rf node_modules && pnpm install --prefer-offline --no-frozen-lockfile`
-- Updated README supervisor/runtime notes to match current defaults and env-file behavior.
+## [LeadNest CRM Initial Brand & Dashboard Foundation] - 2024-06-08
+
+### Added
+- Dashboard pages for core CRM workflow:
+  - `/dashboard/leads`: Heading "Leads", empty state message, and "Add Lead" CTA
+  - `/dashboard/contacts`: Heading "Contacts", empty state message, and "Add Contact" CTA
+  - `/dashboard/deals`: Heading "Deals", empty state message, and "Add Deal" CTA
+
+### Changed
+- All homepage/landing page content in `content/home.ts` updated to LeadNest branding, features, positioning.
+- Navbar branding updated to "LeadNest" across mobile/desktop (`components/layout/navbar.tsx` pulls value from new homepage content).
+- All auth client UI headings, subheadings, CTA buttons, and helper text now refer to "LeadNest" (Sign In/Sign Up + helper text, onboarding copy, and CTA).
+- Dashboard shell (`app/dashboard/layout.tsx`) sidebar and logo section now use "LeadNest" (with "L" mark), consistent with LeadNest visual brand.
+- Dashboard sidebar navigation (`components/dashboard/sidebar-nav.tsx`) replaced with new workspace nav: "Dashboard", "Leads", "Contacts", "Deals", "Settings".
+- Dashboard welcome page content: heading "Welcome to LeadNest", CRM workflow subheading, empty state messaging (“No data yet. Start by adding a new lead, contact, or deal.”) with CTAs.
+- All new routes/pages use shadcn/ui button and styling conventions.
+
+### Branding
+- Owner info and demo contact updated for: Chirag Dodiya (chirag@bidx.ai)
+
+---
